@@ -15,7 +15,7 @@ After dataset augmentation, we can see that the labels have changed correspondin
 
 Random sample of augmented images:
 
-![dataset sample after augmentation](dataset_example.jpg)
+![dataset sample after augmentation](augmented.png)
 
 Model architecture
 ---
