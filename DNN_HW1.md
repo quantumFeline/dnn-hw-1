@@ -1,7 +1,10 @@
 [Colab link](https://colab.research.google.com/drive/1VIIixwe9ZxKZZd-Wu6OPq14omoIRnNTA?authuser=0#scrollTo=gwEpAkZ1WQPH)
 
-Requirements: cuda, ~3-5 min on gpu
+[Github link](https://github.com/quantumFeline/dnn-hw-1)
 
+**Requirements**: cuda, ~3-5 min on gpu
+
+Implementation of [this lab](https://colab.research.google.com/github/mim-ml-teaching/public-dnn-2025-26/blob/master/docs/hw_1_multitask_counting_student.ipynb).
 
 Dataset exploration and augmentation
 ---
@@ -51,13 +54,13 @@ We defined three training loops for each experiment: classification-only, regres
 
 These are the graphs of our training process:
 
-![loss, classification](./loss_classification_only.jpg)
+![loss, classification](./loss_classification_only.png)
 
-![loss, regression](./loss_regression_only.jpg)
+![loss, regression](./loss_regression_only.png)
 
-![loss, combined](./loss.jpg)
+![loss, combined](./loss_joint.png)
 
-In all cases we see the test loss significantly below training loss; this is normal and is caused by our use of Dropout layer, which is turned off when in evaluation mode.
+In all cases, unless our randomly chosen priors were especially good, we see the test loss significantly below training loss; this is normal and is caused by our use of Dropout layer, which is turned off when in evaluation mode.
 
 We experimented with different possible augmentations. Simple geometric augmentations, like flipping, seem to be beneficial, while Gaussian noise seems to lead to more unsteady training progress. In the end all augmentations have been included, but the occurrence of the more problematic ones was turned downwards.
 
@@ -93,3 +96,5 @@ As it is hard to analyses 135 classes, we can also simply display the number of 
 ![misclassified pairs](./classes_pairs.png)
 
 We can see that the distribution is pretty even, though circles are the least problems shape (which is intuitive).
+
+Further improvements can be likely achieved with more thorough search through the space of possible values for augmentation level, dropout level, and possibly batch normalization.
